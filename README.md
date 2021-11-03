@@ -4,6 +4,7 @@
 * NodeJS Modules
     * Express
     * Nodemon
+    * EJS
 
 ## Installing Dependencies
 Navigate to the repository in terminal and run the following: 
