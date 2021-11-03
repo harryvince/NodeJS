@@ -11,16 +11,19 @@ app.set('view engine', 'ejs');
 
 // Define Routes
 app.get("/", function(req, res) {
-    var mascots = [
-        { name: 'Sammy', organization: "DigitalOcean", birth_year: 2021},
-        { name: 'Tux', organization: "Linux", birth_year: 1996},
-        { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
-    ];
-    var tagline = "No Programming concept is complete without a cute animal mascot.";
+    var date = new Date();
+    var hour = date.getHours();
+    var Rdate = date.toLocaleDateString("en-UK");
+    var TOD = "";
+    if(hour < 12){
+        TOD = "Good Morning, ";
+    } else {
+        TOD = "Good Afternoon, ";
+    }
 
     res.render('pages/index', {
-        mascots: mascots,
-        tagline: tagline
+        TOD: TOD,
+        date: Rdate
     });
 });
 
