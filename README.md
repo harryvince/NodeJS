@@ -17,6 +17,7 @@ If wanting to utilise this repository I suggest cloning off the master branch as
 ## Running the Server
 Navigate to the repository in terminal and run the following:
 `npm run dev`
+You will then be able to reach the website by hitting localhost:8000 on your Browser
 
 ---
 
