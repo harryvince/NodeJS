@@ -6,6 +6,7 @@
     * Nodemon
     * EJS
     * Favicon Middleware
+    * Requests
 
 ## Installing Dependencies
 Navigate to the repository in terminal and run the following: 
