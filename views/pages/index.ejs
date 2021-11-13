@@ -9,7 +9,7 @@
   <%- include('../partials/header'); %>
 </header>
 <main class="justify-content-center d-flex">
-  <div class="jumbotron text-center mt-2">
+  <div class="jumbotron text-center mt-5">
     <h2><%= TOD %>Harry</h2>
     <p class="text-center text-muted mt-5">The Current Date is <%= date %></p>
     <p class="text-center text-muted">The Time is <span id="clock"></span></p>
@@ -18,6 +18,15 @@
 
 <footer>
   <%- include('../partials/footer'); %>
+  <script>
+    var clockElement = document.getElementById('clock');
+
+    function clock() {
+        clockElement.textContent = new Date().toLocaleTimeString().toString();
+    }
+    
+    setInterval(clock, 1000);
+  </script>
 </footer>
 
 </body>

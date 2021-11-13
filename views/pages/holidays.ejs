@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body>
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main class="d-flex row row-cols-1 row-cols-md-5 g-4">
+    <% holidays.forEach(element => { %>
+    <div class="col d-flex justify-content-center">
+    <div class="card text-center mt-5" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= element["title"]%></h5>
+          <% const date = new Date(element["date"]) %>
+          <h6 class="card-subtitle mb-2 text-muted"><%= date.toLocaleDateString('en-UK') %></h6>
+        </div>
+      </div>
+    </div>
+      <% }); %>
+</main>
+
+<footer class="mt-5">
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

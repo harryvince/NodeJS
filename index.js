@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 var favicon = require('serve-favicon');
+const request = require('request');
 
 // Start Server
 const app = express();
@@ -15,6 +16,11 @@ app.use(favicon(path.join(__dirname,'images','favicon','favicon.ico')));
 
 // Define Routes
 app.get("/", function(req, res) {
+    // Saving IP
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress ;
+    // Logging Access
+    console.log(`GET REQUEST FROM: ${ip} on /`);
+
     var date = new Date();
     var hour = date.getHours();
     var Rdate = date.toLocaleDateString("en-UK");
@@ -32,7 +38,36 @@ app.get("/", function(req, res) {
 });
 
 app.get("/about", function(req, res) {
+    // Saving IP
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress ;
+    // Logging Access
+    console.log(`GET REQUEST FROM: ${ip} on /about`);
+
     res.render('pages/about');
+});
+
+// Getting bank Holidays
+var date = new Date();
+const holidays = [];
+request('https://www.gov.uk/bank-holidays.json', function (error, response, body) {
+    var data = JSON.parse(body);
+    for(var number in data["england-and-wales"]["events"]){
+        var check = Date.parse(data["england-and-wales"]["events"][number]["date"]);
+        if(check > date){
+            holidays.push(data["england-and-wales"]["events"][number]);
+        }
+    }
+});
+
+app.get("/holidays", function(req, res) {
+    // Saving IP
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress ;
+    // Logging Access
+    console.log(`GET REQUEST FROM: ${ip} on /holidays`);
+
+    res.render('pages/holidays', {
+        holidays: holidays    
+    });
 });
 
 // Activation
