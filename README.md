@@ -5,6 +5,7 @@
     * Express
     * Nodemon
     * EJS
+    * Favicon Middleware
 
 ## Installing Dependencies
 Navigate to the repository in terminal and run the following: 

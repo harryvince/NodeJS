@@ -1,6 +1,7 @@
 // Intiliazing Modules
 const express = require('express');
 const path = require('path');
+var favicon = require('serve-favicon');
 
 // Start Server
 const app = express();
@@ -8,6 +9,9 @@ const port = process.env.PORT || "8000";
 
 // Set the View Engine
 app.set('view engine', 'ejs');
+
+// Set the Favicon
+app.use(favicon(path.join(__dirname,'images','favicon','favicon.ico')));
 
 // Define Routes
 app.get("/", function(req, res) {
