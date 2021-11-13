@@ -6,4 +6,12 @@
     let year = date_ob.getFullYear();
     let footer = document.getElementById('DynamicFooter');
     footer.innerText = "Harry Vince - "+year;
+
+    var clockElement = document.getElementById('clock');
+
+    function clock() {
+        clockElement.textContent = new Date().toLocaleTimeString().toString();
+    }
+
+    setInterval(clock, 1000);
 </script>
