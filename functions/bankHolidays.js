@@ -14,7 +14,6 @@ function bankHols() {
                 var check = Date.parse(number["date"]);
                 if(check > date){
                     holidays.push(number);
-                    console.log(number);
                 }
             }
             resolve(holidays);
