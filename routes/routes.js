@@ -39,9 +39,9 @@ var express = require('express'),
         // Saving IP
         var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress ;
         // Logging Access
-        console.log(`GET REQUEST FROM: ${ip} on /about`);
+        console.log(`GET REQUEST FROM: ${ip} on /holidays`);
         // Getting Bank Holidays
-        var holidays = await bankHolidays.getBankHols();
+        var holidays = await bankHolidays.bankHols();
     
         res.render('pages/holidays', {
             holidays: holidays    

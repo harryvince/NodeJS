@@ -2,21 +2,24 @@
 const request = require('request');
 
 // Functions
+
 // Getting bank Holidays
-async function getBankHols() {
-    var date = new Date();
-    const holidays = [];
-    request('https://www.gov.uk/bank-holidays.json', function (error, response, body) {
-        var data = JSON.parse(body);
-        for(var number in data["england-and-wales"]["events"]){
-            var check = Date.parse(data["england-and-wales"]["events"][number]["date"]);
-            if(check > date){
-                holidays.push(data["england-and-wales"]["events"][number]);
+function bankHols() {
+    return new Promise((resolve) => {
+        var date = new Date();
+        var holidays = [];
+        request('https://www.gov.uk/bank-holidays.json', async function (error, response, body) {
+            var data = JSON.parse(body);
+            for await(let number of data["england-and-wales"]["events"]){
+                var check = Date.parse(number["date"]);
+                if(check > date){
+                    holidays.push(number);
+                    console.log(number);
+                }
             }
-        }
+            resolve(holidays);
+        });
     });
-    await sleep(1000);
-    return holidays;
 }
 
 // Sleep Function
@@ -27,4 +30,4 @@ function sleep(ms) {
 }
 
 // Exports
-module.exports = { getBankHols };
+module.exports = { bankHols };
