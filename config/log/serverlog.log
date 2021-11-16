@@ -1,0 +1,10 @@
+// Sample Log File
+
+Server running on http://localhost:8000
+GET Request From: xxx.xxx.x.xx on / at 7:12:19 PM
+GET Request From: xxx.xxx.x.xx on /holidays at 7:14:21 PM
+GET Request From: xxx.xxx.x.xx on /about at 7:15:23 PM
+GET Request From: xxx.xxx.x.xx on / at 8:12:24 PM
+GET Request From: xxx.xxx.x.xx on /holidays at 8:12:24 PM
+GET Request From: xxx.xxx.x.xx on /about at 8:36:26 PM
+GET Request From: xxx.xxx.x.xx on / at 8:36:27 PM
