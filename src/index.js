@@ -10,6 +10,7 @@ const port = process.env.PORT || "8000";
 
 // Set the View Engine
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'))
 
 // Set the Favicon
 app.use(favicon(path.join(__dirname,'images','favicon','favicon.ico')));

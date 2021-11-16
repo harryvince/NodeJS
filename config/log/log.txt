@@ -1,0 +1,8 @@
+Server running on http://localhost:8000
+GET Request From: 127.0.0.1 on / at 23:17:21
+GET Request From: 127.0.0.1 on /holidays at 23:17:23
+GET Request From: 127.0.0.1 on / at 23:17:25
+GET Request From: 127.0.0.1 on /holidays at 23:17:26
+GET Request From: 127.0.0.1 on / at 23:17:26
+GET Request From: 127.0.0.1 on /holidays at 23:17:27
+GET Request From: 127.0.0.1 on / at 23:17:27
