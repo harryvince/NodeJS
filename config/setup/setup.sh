@@ -45,16 +45,16 @@ network:
 
 InstallDependencies() {
     echo "Installing System Updates..."
-    apt update
+    apt update -y
     echo "Installed System Updates."
     echo "Installing Node..."
-    apt install nodejs
+    apt install nodejs -y
     echo "Installed Node."
     echo "Installing NPM..."
-    apt install npm
+    apt install npm -y
     echo "Installed NPM."
     echo "Installing Nginx..."
-    apt install nginx
+    apt install nginx -y
     echo "Installed Nginx."
     echo "Configuring Nginx..."
     systemctlctl enable nginx
@@ -101,7 +101,7 @@ InstallDependencies() {
 
 ConfigureCrontab() {
     echo "Adding Start Process to Crontab..."
-    apt install crontab
+    apt install crontab -y
     crontab -l > file; echo "@reboot $location/config/server/StartServer.sh" >> file; crontab file; rm file
     echo "Process Added to Crontab."
 }
