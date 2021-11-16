@@ -1,15 +1,17 @@
 // Intializing Modules
 const bankHolidays = require('../functions/bankHolidays');
+const logging = require('../functions/logger');
+
+// Intializing Server
 var express = require('express'),
     router = express.Router();
 
     // Defining Routes
     router.get('/', function(req, res){
-        // Saving IP
-        var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress ;
         // Logging Access
-        console.log(`GET REQUEST FROM: ${ip} on /`);
-    
+        logging.get(req, "/");
+        
+        // Getting Date
         var date = new Date();
         var hour = date.getHours();
         var Rdate = date.toLocaleDateString("en-UK");
@@ -27,19 +29,15 @@ var express = require('express'),
     })
 
     router.get("/about", function(req, res) {
-        // Saving IP
-        var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress ;
         // Logging Access
-        console.log(`GET REQUEST FROM: ${ip} on /about`);
+        logging.get(req, "/about");
     
         res.render('pages/about');
     });
 
     router.get("/holidays", async function(req, res) {
-        // Saving IP
-        var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress ;
         // Logging Access
-        console.log(`GET REQUEST FROM: ${ip} on /holidays`);
+        logging.get(req, "/holidays");
         // Getting Bank Holidays
         var holidays = await bankHolidays.bankHols();
     
