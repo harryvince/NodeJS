@@ -2,6 +2,7 @@
 echo "Killing Process..."
 kill -9 `cat ../log/pid.txt`
 echo "Killed Process."
+rm -f ../log/pid.txt
 cd ../..
 location=$(pwd)
 cd $location/src
