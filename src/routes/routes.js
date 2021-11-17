@@ -14,7 +14,7 @@ var express = require('express'),
         // Getting Date
         var date = new Date();
         var hour = date.getHours();
-        var Rdate = date.toLocaleDateString("en-UK");
+        var Rdate = date.toLocaleDateString('en-GB');
         var TOD = "";
         if(hour < 12){
             TOD = "Good Morning, ";
