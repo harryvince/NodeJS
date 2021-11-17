@@ -15,5 +15,4 @@ echo "Checked & Installed."
 echo "Intializing Server..."
 nohup node index.js > $location/config/log/log.txt 2>&1 &
 echo "Intialized."
-cd $location/config/log
-echo $! > pid.txt
+echo $! > $location/config/log/pid.txt
