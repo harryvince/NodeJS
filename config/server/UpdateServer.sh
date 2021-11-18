@@ -1,8 +1,8 @@
 #!/bin/bash
-echo "Killing Process..."
-kill -9 `cat ../log/pid.txt`
-echo "Killed Process."
-rm -f ../log/pid.txt
+echo "Stopping Server..."
+systemctl stop webserver.service
+systemctl stop nginx.service
+echo "Stopped Server."
 cd ../..
 location=$(pwd)
 cd $location/src
@@ -13,6 +13,6 @@ echo "Checking & Installing new Dependencies"
 npm install
 echo "Checked & Installed."
 echo "Intializing Server..."
-nohup node index.js > $location/config/log/log.txt 2>&1 &
+systemctl start webserver.service
+systemctl start nginx.service
 echo "Intialized."
-echo $! > $location/config/log/pid.txt
