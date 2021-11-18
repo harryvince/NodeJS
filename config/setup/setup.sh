@@ -61,10 +61,26 @@ InstallDependencies() {
     echo "Installed SSH."
 }
 
-ConfigureCrontab() {
-    echo "Adding Start Process to Crontab..."
-    crontab -l > file; echo "@reboot $location/config/server/StartServer.sh" >> file; crontab file; rm file
-    echo "Process Added to Crontab."
+ConfigureNodeServer() {
+    echo "Adding Server to Services..."
+    addgroup webserver
+    adduser ubuntu webserver
+    echo "[Unit]
+Description= Node Web Server
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/bin/bash $location/config/server/StartServer.sh
+Type=simple
+User=ubuntu
+Group=webserver
+WorkingDirectory=$location
+Restart=on-failure" > /etc/systemd/system/webserver.service
+    chmod 755 /etc/systemd/system/webserver.service
+    systemctl daemon-reload
+    sytemctl enable webserver.service
 }
 
 InstallNodeModules() {
@@ -82,7 +98,7 @@ allowScripts(){
 
 echo "Starting Script"
 InstallDependencies
-ConfigureCrontab
+ConfigureNodeServer
 InstallNodeModules
 allowScripts
 echo "Script Ended."
