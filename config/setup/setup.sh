@@ -80,7 +80,7 @@ WorkingDirectory=$location
 Restart=on-failure" > /etc/systemd/system/webserver.service
     chmod 755 /etc/systemd/system/webserver.service
     systemctl daemon-reload
-    sytemctl enable webserver.service
+    systemctl enable webserver.service
 }
 
 InstallNodeModules() {
