@@ -7,6 +7,7 @@ location=$(pwd)
 InstallDependencies() {
     echo "Installing System Updates..."
     apt update -y
+    apt upgrade -y
     echo "Installed System Updates."
     echo "Installing Node..."
     apt install nodejs -y
