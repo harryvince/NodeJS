@@ -9,7 +9,7 @@
   <%- include('../partials/header'); %>
 </header>
 
-<main>
+<div class="container-fluid">
 <div class="d-flex row row-cols-1 row-cols-md-3 g-4">
     <% holidays.forEach(element => { %>
     <div class="col d-flex justify-content-center">
@@ -23,7 +23,7 @@
     </div>
       <% }); %>
 </div>
-</main>
+</div>
 
 <footer class="mt-5">
   <%- include('../partials/footer'); %>
