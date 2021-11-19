@@ -5,7 +5,6 @@
     * Express
     * Nodemon
     * EJS
-    * Favicon Middleware
     * Requests
 * Debian Based Server for this example: Ubuntu server 20.04.3 LTS Pi Edition (Note: This is only required if you intend to run this on a server)
 
