@@ -56,7 +56,6 @@ InstallDependencies() {
 }" > /etc/nginx/sites-enabled/default
     echo "Configured Nginx."
     echo "Installing SSH..."
-    apt install openssh-server -y
     systemctl enable ssh
     echo "Installed SSH."
 }
