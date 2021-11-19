@@ -9,7 +9,8 @@
   <%- include('../partials/header'); %>
 </header>
 
-<main class="d-flex row row-cols-1 row-cols-md-3 g-4">
+<main>
+<div class="d-flex row row-cols-1 row-cols-md-3 g-4">
     <% holidays.forEach(element => { %>
     <div class="col d-flex justify-content-center">
     <div class="card text-center mt-5" style="width: 18rem;">
@@ -21,6 +22,7 @@
       </div>
     </div>
       <% }); %>
+</div>
 </main>
 
 <footer class="mt-5">
