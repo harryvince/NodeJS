@@ -10,13 +10,20 @@
 </header>
 <main class="justify-content-center d-flex">
   <div class="jumbotron text-center mt-5">
-    <h2><%= TOD %>Harry</h2>
+    <h2><%= TOD %><%= name %></h2>
     <p class="text-center text-muted mt-5">The Current Date is <%= date %></p>
     <p class="text-center text-muted">The Time is <span id="clock"></span></p>
+    <form action="/logout?_method=DELETE" method="POST">
+      <div class="container-login100-form-btn">
+        <button type="submit" class="login100-form-btn mt-5">
+          Log out
+        </button>
+      </div>
+  </form>
   </div>
 </main>
 <!-- Adding the clock in -->
-<script type="text/javascript" src="javascript/clock.js"></script>
+<script type="text/javascript" src="js/clock.js"></script>
 
 <footer>
   <%- include('../partials/footer'); %>
