@@ -85,10 +85,10 @@ var express = require('express'),
             const hashedPassword = await bcrypt.hash(req.body.password, 10);
             const detail = new Login({
                 name: req.body.name,
-                email: req.body.email,
+                email: req.body.email.toLocaleLowerCase(),
                 password: hashedPassword
             });
-            const query = Login.where({ email: req.body.email });
+            const query = Login.where({ email: req.body.email.toLocaleLowerCase() });
             query.findOne(async function (err, login) {
                 if (err) return handleError(err);
                 if (login) {
