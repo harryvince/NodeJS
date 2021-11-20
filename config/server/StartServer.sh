@@ -1,5 +1,4 @@
 #!/bin/bash
 echo "Starting Server..."
-location=$(find / -type f -name 'StartServer.sh')
-node $location
+node $SERVER_LOCATION/src/index.js
 echo "Server Started."

@@ -3,6 +3,7 @@
 # Getting File Directory
 cd ../..
 location=$(pwd)
+export SERVER_LOCATION=$location
 
 InstallDependencies() {
     echo "Installing System Updates..."
