@@ -3,7 +3,7 @@
 # Getting File Directory
 cd ../..
 location=$(pwd)
-export SERVER_LOCATION=$location
+echo 'export SERVER_LOCATION="'"${location}"'"' >> ~/.bashrc
 
 InstallDependencies() {
     echo "Installing System Updates..."
@@ -11,7 +11,10 @@ InstallDependencies() {
     apt upgrade -y
     echo "Installed System Updates."
     echo "Installing Node..."
-    apt install nodejs -y
+    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+    source ~/.profile
+    nvm install node
+    n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
     echo "Installed Node."
     echo "Installing NPM..."
     apt install npm -y
@@ -64,7 +67,7 @@ InstallDependencies() {
     echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
     apt-get update
     apt-get install -y mongodb-org
-    sudo systemctl enable mongod
+    systemctl enable mongod
     echo "Installed & Configured MongoDB."
 }
 
