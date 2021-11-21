@@ -82,6 +82,7 @@ Description= Node Web Server
 WantedBy=multi-user.target
 
 [Service]
+Environment="'SERVER_LOCATION="'"${location}"'"'"
 ExecStart=/bin/bash $location/config/server/StartServer.sh
 Type=simple
 User=ubuntu
